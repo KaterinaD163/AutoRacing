@@ -1,3 +1,5 @@
+
+
 public class Main {
     public static void main(String[] args) {
         Car car1 = new Car("Lada", "Grande", 1.7f);
@@ -96,14 +98,19 @@ public class Main {
         bus4.bestRoundTime();
         bus4.maxSpeed();
         System.out.println();
-        CategoryBDriver<Car> driver1 = new CategoryBDriver<Car>();
-        CategoryCDriver<Truck> driver2 = new CategoryCDriver<Truck>();
-        CategoryDDriver<Bus> driver3 = new CategoryDDriver<Bus>();
-        System.out.println("Водитель категории " + driver1.getClass() + " управляет автомобилем " + car1.getBrand() + " "
+        Driver<Car, Truck, Bus> categoryBDriver = new Driver<>("Павлов Иван Фёдорович", "права есть", 20);
+        Driver<Car, Truck, Bus> categoryCDriver = new Driver<Car, Truck, Bus>("Финютин Иван Григорьевич", "права есть", 5);
+        Driver<Car, Truck, Bus> categoryDDriver = new Driver<Car, Truck, Bus>("Загородцев Андрей Алексеевич", "права есть", 5);
+        Driver.categoryBDriver();
+        System.out.println(categoryBDriver.getFullName() + " управляет автомобилем " + car1.getBrand() + " "
                 + car1.getModel() + " и будет участвовать в заезде");
-        System.out.println("Водитель категории " + driver2.getClass() + " управляет грузовиком " + truck1.getBrand() + " "
+        System.out.println();
+        Driver.categoryCDriver();
+        System.out.println(categoryCDriver.getFullName() + " управляет грузовиком " + truck1.getBrand() + " "
                 + truck1.getModel() + " и будет участвовать в заезде");
-        System.out.println("Водитель категории " + driver3.getClass() + " управляет автобусом " + bus1.getBrand() + " "
+        System.out.println();
+        Driver.categoryDDriver();
+        System.out.println(categoryDDriver.getFullName() + " управляет автобусом " + bus1.getBrand() + " "
                 + bus1.getModel() + " и будет участвовать в заезде");
     }
 }
