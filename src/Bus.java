@@ -10,12 +10,12 @@ public class Bus extends Transport implements Competing {
 
     @Override
     public void startMoving() {
-        System.out.println(" Начать движение");
+        System.out.println(" Водителю автобуса начать движение");
     }
 
     @Override
     public void finishMoving() {
-        System.out.println(" Закончить движение");
+        System.out.println(" Водителю автобуса закончить движение");
     }
 
     @Override
@@ -23,37 +23,21 @@ public class Bus extends Transport implements Competing {
         return "Bus{}";
     }
 
-    @Override
-    public String getBrand() {
-        return super.getBrand();
-    }
 
-    @Override
-    public String getModel() {
-        return super.getModel();
-    }
-
-    @Override
-    public float getEngineVolume() {
-        return super.getEngineVolume();
-    }
-
-    @Override
-    public String pitStop() {
+    public static void pitStop() {
         System.out.println(" Здесь был пит-стоп");
-        return null;
     }
 
-    @Override
-    public double bestRoundTime() {
+
+    public static void bestRoundTime() {
         System.out.println(" Лучшее время круга - 4 минуты");
-        return 0;
+
     }
 
-    @Override
-    public double maxSpeed() {
+
+    public void maxSpeed() {
         System.out.println(" Максимальная скорость - 250 км/ч");
-        return 0;
+
     }
 }
 

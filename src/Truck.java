@@ -1,19 +1,21 @@
-public class Truck extends Transport implements Competing{
+public class Truck extends Transport implements Competing {
 
     public Truck(String brand, String model, float engineVolume) {
         super(brand, model, engineVolume);
     }
+
     public void printTruck() {
         System.out.println(getBrand() + " " + getModel() + ", объём двигателя " + getEngineVolume() + " л ");
     }
-        @Override
+
+    @Override
     public void startMoving() {
-            System.out.println(" Начать движение");
+        System.out.println(" Водителю грузовика начать движение");
     }
 
     @Override
     public void finishMoving() {
-        System.out.println(" Закончить движение");
+        System.out.println(" Водителю грузовика закончить движение");
     }
 
     @Override
@@ -21,36 +23,20 @@ public class Truck extends Transport implements Competing{
         return "Truck{}";
     }
 
-    @Override
-    public String getBrand() {
-        return super.getBrand();
-    }
 
-    @Override
-    public String getModel() {
-        return super.getModel();
-    }
-
-    @Override
-    public float getEngineVolume() {
-        return super.getEngineVolume();
-    }
-
-    @Override
-    public String pitStop() {
+    public static void pitStop() {
         System.out.println(" Здесь был пит-стоп");
-        return null;
+
     }
 
-    @Override
-    public double bestRoundTime() {
+
+    public static void bestRoundTime() {
         System.out.println(" Лучшее время круга - 6 минут");
-        return 0;
     }
 
-    @Override
-    public double maxSpeed() {
+
+    public static void maxSpeed() {
         System.out.println(" Максимальная скорость - 170 км/ч");
-        return 0;
+
     }
 }

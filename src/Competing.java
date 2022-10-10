@@ -1,7 +1,10 @@
 public interface Competing {
-    String pitStop();
+    static void pitStop() {
+    }
 
-    double bestRoundTime();
+    static void bestRoundTime() {
+    }
 
-    double maxSpeed();
+    static void maxSpeed() {
+    }
 }
