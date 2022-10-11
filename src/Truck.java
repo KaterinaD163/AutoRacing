@@ -46,6 +46,5 @@ public class Truck extends Transport implements Competing {
 
     public void maxSpeed() {
         System.out.println(" Максимальная скорость - 170 км/ч");
-
     }
 }

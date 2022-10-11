@@ -53,6 +53,7 @@ public class Driver<T extends Transport> {
 
     public void refill(T Transport) {
         System.out.println("Нужно срочно заправиться");
+
     }
 }
 

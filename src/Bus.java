@@ -45,7 +45,6 @@ public class Bus extends Transport implements Competing {
 
     public void maxSpeed() {
         System.out.println(" Максимальная скорость - 250 км/ч");
-
     }
 }
 

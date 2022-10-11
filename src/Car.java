@@ -38,4 +38,5 @@ public class Car extends Transport implements Competing {
         System.out.println(" Максимальная скорость - 300 км/ч");
     }
 
+
 }
