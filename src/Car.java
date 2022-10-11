@@ -1,8 +1,9 @@
 public class Car extends Transport implements Competing {
+    public enum typeOfFuel{Sedan, Hatchback, Coupe, StationWagon, SUV , Crossover, PickupTruck, Van, Minivan}
+
     public Car(String brand, String model, float engineVolume) {
         super(brand, model, engineVolume);
     }
-
     public void printCar() {
         System.out.println(getBrand() + " " + getModel() + ", объём двигателя " + getEngineVolume() + " л ");
     }
@@ -23,17 +24,17 @@ public class Car extends Transport implements Competing {
     }
 
 
-    public static void pitStop() {
+    public void pitStop() {
         System.out.println(" Здесь был пит-стоп");
     }
 
 
-    public static void bestRoundTime() {
+    public void bestRoundTime() {
         System.out.println(" Лучшее время круга - 2 минуты");
     }
 
 
-    public static void maxSpeed() {
+    public void maxSpeed() {
         System.out.println(" Максимальная скорость - 300 км/ч");
     }
 

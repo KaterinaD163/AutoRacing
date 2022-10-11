@@ -98,19 +98,18 @@ public class Main {
         bus4.bestRoundTime();
         bus4.maxSpeed();
         System.out.println();
-        Driver<Car, Truck, Bus> categoryBDriver = new Driver<>("Павлов Иван Фёдорович", "права есть", 20);
-        Driver<Car, Truck, Bus> categoryCDriver = new Driver<Car, Truck, Bus>("Финютин Иван Григорьевич", "права есть", 5);
-        Driver<Car, Truck, Bus> categoryDDriver = new Driver<Car, Truck, Bus>("Загородцев Андрей Алексеевич", "права есть", 5);
-        Driver.categoryBDriver();
-        System.out.println(categoryBDriver.getFullName() + " управляет автомобилем " + car1.getBrand() + " "
+        Driver<Transport> driver1 = new Driver<>("Павлов Иван Фёдорович", "права есть", 20);
+        Driver<Transport> driver2 = new Driver<>("Финютин Иван Григорьевич", "права есть", 5);
+        Driver<Transport> driver3 = new Driver<>("Загородцев Андрей Алексеевич", "права есть", 5);
+        System.out.println(driver1.getFullName() + " управляет автомобилем " + car1.getBrand() + " "
                 + car1.getModel() + " и будет участвовать в заезде");
         System.out.println();
-        Driver.categoryCDriver();
-        System.out.println(categoryCDriver.getFullName() + " управляет грузовиком " + truck1.getBrand() + " "
+
+        System.out.println(driver2.getFullName() + " управляет грузовиком " + truck1.getBrand() + " "
                 + truck1.getModel() + " и будет участвовать в заезде");
         System.out.println();
-        Driver.categoryDDriver();
-        System.out.println(categoryDDriver.getFullName() + " управляет автобусом " + bus1.getBrand() + " "
+
+        System.out.println(driver3.getFullName() + " управляет автобусом " + bus1.getBrand() + " "
                 + bus1.getModel() + " и будет участвовать в заезде");
     }
 }

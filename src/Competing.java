@@ -1,10 +1,7 @@
 public interface Competing {
-    static void pitStop() {
-    }
+    void pitStop();
 
-    static void bestRoundTime() {
-    }
+    void bestRoundTime();
 
-    static void maxSpeed() {
-    }
+    void maxSpeed();
 }
