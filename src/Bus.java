@@ -1,7 +1,58 @@
 
 public class Bus extends Transport implements Competing {
-    public enum numberOfSeats {veryFewSeats, fewSeats, averageNumberOfSeats, lotsOfSeats, aLotOfSeats}
+    public enum NumberOfSeats {
+        VERY_FEW_SEATS, FEW_SEATS, AVERAGE_NUMBER_OF_SEATS, LOTS_OF_SEATS, A_LOT_OF_SEATS;
 
+        private String VeryFewSeats = " 10 мест";
+        private String second = " 25 мест";
+        private String averageNumberOfSeats = " 40-50 мест";
+        private String lotsOfSeats = " 60-80 мест";
+        private String aLotOfSeats = " 100-120 мест";
+
+        NumberOfSeats() {
+        }
+
+
+        public String getVeryFewSeats() {
+            return VeryFewSeats;
+        }
+
+        public String getSecond() {
+            return second;
+        }
+
+        public String getAverageNumberOfSeats() {
+            return averageNumberOfSeats;
+        }
+
+        public String getLotsOfSeats() {
+            return lotsOfSeats;
+        }
+
+        public String getaLotOfSeats() {
+            return aLotOfSeats;
+        }
+
+        public void setVeryFewSeats(String veryFewSeats) {
+            VeryFewSeats = veryFewSeats;
+        }
+
+        public void setSecond(String second) {
+            this.second = second;
+        }
+
+        public void setAverageNumberOfSeats(String averageNumberOfSeats) {
+            this.averageNumberOfSeats = averageNumberOfSeats;
+        }
+
+        public void setLotsOfSeats(String lotsOfSeats) {
+            this.lotsOfSeats = lotsOfSeats;
+        }
+
+        public void setALotOfSeats(String aLotOfSeats) {
+            this.aLotOfSeats = aLotOfSeats;
+        }
+    }
 
     public Bus(String brand, String model, float engineVolume) {
         super(brand, model, engineVolume);
@@ -23,11 +74,7 @@ public class Bus extends Transport implements Competing {
 
     @Override
     public String toString() {
-        final String veryFewSeats = " 10 мест";
-        final String second = " 25 мест";
-        final String averageNumberOfSeats = " 40-50 мест";
-        final String lotsOfSeats = " 60-80 мест";
-        final String aLotOfSeats = " 100-120 мест";
+
         return "Bus{}";
     }
 

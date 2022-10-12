@@ -1,5 +1,38 @@
 public class Truck extends Transport implements Competing {
-    public enum loadTonnage {first, second, third}
+    public enum LoadTonnage {
+        FIRST, SECOND, THIRD;
+
+        private String first = " №1 (с полной массой до 3,5 тонн)";
+        private String second = " №2 с полной массой свыше 3,5 до 12 тонн)";
+        private String third = " №3 (с полной массой свыше 12 тонн)";
+
+        LoadTonnage() {
+        }
+
+        public String getFirst() {
+            return first;
+        }
+
+        public String getSecond() {
+            return second;
+        }
+
+        public String getThird() {
+            return third;
+        }
+
+        public void setFirst(String first) {
+            this.first = first;
+        }
+
+        public void setSecond(String second) {
+            this.second = second;
+        }
+
+        public void setThird(String third) {
+            this.third = third;
+        }
+    }
 
 
     public Truck(String brand, String model, float engineVolume) {
@@ -9,6 +42,7 @@ public class Truck extends Transport implements Competing {
 
     public void printLoadTonnage() {
     }
+
     public void printTruck() {
         System.out.println(getBrand() + " " + getModel() + ", объём двигателя " + getEngineVolume() + " л ");
     }
@@ -25,10 +59,6 @@ public class Truck extends Transport implements Competing {
 
     @Override
     public String toString() {
-        final String first = " №1 (с полной массой до 3,5 тонн)";
-        final String second = " №2 с полной массой свыше 3,5 до 12 тонн)";
-        final String third = " №3 (с полной массой свыше 12 тонн)";
-
         return "Truck{}";
     }
 

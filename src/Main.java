@@ -111,6 +111,9 @@ public class Main {
 
         System.out.println(driver3.getFullName() + " управляет автобусом " + bus1.getBrand() + " "
                 + bus1.getModel() + " и будет участвовать в заезде");
-
+        System.out.println();
+        System.out.println(Car.TypeOfFuel.COUPE);
+        System.out.println(Truck.LoadTonnage.FIRST);
+        System.out.println(Bus.NumberOfSeats.FEW_SEATS);
     }
 }
