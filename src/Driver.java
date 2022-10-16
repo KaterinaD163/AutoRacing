@@ -4,17 +4,28 @@ public class Driver<T extends Transport> {
     private int experience;
     private T Transport;
 
-    public Driver(String fullName, String presenceOfDriverLicense, int experience) {
+    public Driver(String fullName, String presenceOfDriverLicense, int experience) throws Exception {
         this.fullName = fullName;
-        this.presenceOfDriverLicense = presenceOfDriverLicense;
+        setPresenceOfDriverLicense(presenceOfDriverLicense);
         this.experience = experience;
+    }
+
+    public void printDriver() {
+        System.out.println(getFullName() + ", " + getPresenceOfDriverLicense() + ", стаж " + getExperience() + " лет");
     }
 
     public String getFullName() {
         return fullName;
     }
 
-    public String getPresenceOfDriverLicense() {
+    public String getPresenceOfDriverLicense()throws NullPointerException {
+        if (presenceOfDriverLicense.isBlank() || presenceOfDriverLicense == null) {
+            try {
+                throw new NullPointerException("Необходимо указать категорию прав!");
+            } catch (NullPointerException e) {
+                System.out.println(e.getMessage());
+            }
+        }
         return presenceOfDriverLicense;
     }
 
@@ -22,7 +33,7 @@ public class Driver<T extends Transport> {
         return experience;
     }
 
-    public void setPresenceOfDriverLicense(String PresenceOfDriverLicense) {
+    public void setPresenceOfDriverLicense(String presenceOfDriverLicense) {
         this.presenceOfDriverLicense = presenceOfDriverLicense;
     }
 
@@ -35,25 +46,36 @@ public class Driver<T extends Transport> {
         return "Driver{" +
                 "fullName='" + fullName + '\'' +
                 ", presenceOfDriverLicense='" + presenceOfDriverLicense + '\'' +
-                ", experience='" + experience + '\'' +
+                ", experience=" + experience +
+                ", Transport=" + Transport +
                 '}';
     }
 
-    public void startMoving(T Transport) {
+    public void startMoving(T transport) {
         Transport.startMoving();
-        System.out.println("Водителю категории B начать движение");
+        System.out.println("Начать движение");
     }
 
 
-    public void finishMoving(T Transport) {
-     Transport.finishMoving();
-        System.out.println("Водителю категории B закончить движение");
+    public void finishMoving(T transport) {
+        Transport.finishMoving();
+        System.out.println("Закончить движение");
     }
 
 
-    public void refill(T Transport) {
+    public void refill(T transport) {
         System.out.println("Нужно срочно заправиться");
 
     }
-}
 
+    public void checkDriverLicense() throws NullPointerException{
+        if (presenceOfDriverLicense.isBlank() || presenceOfDriverLicense == null) {
+            try {
+                throw new NullPointerException("Необходимо указать категорию прав!");
+            } catch (NullPointerException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+}

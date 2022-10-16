@@ -54,12 +54,18 @@ public class Bus extends Transport implements Competing {
         }
     }
 
-    public Bus(String brand, String model, float engineVolume) {
-        super(brand, model, engineVolume);
+    public Bus(String brand, String model, float engineVolume, double maxVolumeFraction) {
+        super(brand, model, engineVolume, maxVolumeFraction);
+    }
+
+    @Override
+    public boolean passDiagnostics() {
+        System.out.println("Автобус " + getBrand() + " " + getModel() + " в дигностике не нуждается");
+        return true;
     }
 
     public void printBus() {
-        System.out.println(getBrand() + " " + getModel() + ", объём двигателя " + getEngineVolume() + " л  ");
+        System.out.println(getBrand() + " " + getModel() + ", объём двигателя " + getEngineVolume() + " л  " + getMaxVolumeFraction());
     }
 
     @Override
@@ -70,6 +76,11 @@ public class Bus extends Transport implements Competing {
     @Override
     public void finishMoving() {
         System.out.println(" Водителю автобуса закончить движение");
+    }
+
+    @Override
+    public void service() {
+        System.out.println("В сервисном обслуживании не нуждается");
     }
 
     @Override

@@ -1,7 +1,9 @@
 public class Car extends Transport implements Competing {
+
     public enum TypeOfFuel {
         SEDAN, HATH_BACK, COUPE, STATION_WAGON, SUV, CROSSOVER, PICKUP, VAN, MINIVAN;
         private static String typeOfFuel;
+        private float volumeFraction;
 
         TypeOfFuel() {
         }
@@ -23,12 +25,21 @@ public class Car extends Transport implements Competing {
         }
     }
 
-    public Car(String brand, String model, float engineVolume) {
-        super(brand, model, engineVolume);
+    public Car(String brand, String model, float engineVolume, double maxVolumeFraction) {
+        super(brand, model, engineVolume, maxVolumeFraction);
+    }
+    @Override
+    public boolean passDiagnostics() {
+        if (getMaxVolumeFraction() <= 4.5) {
+            System.out.println("Выбросы CO в атмосферу не превышены");
+        } else {
+            System.out.println("Пройти дигностику");
+        }
+        return false;
     }
 
     public void printCar() {
-        System.out.println(getBrand() + " " + getModel() + ", объём двигателя " + getEngineVolume() + " л ");
+        System.out.println(getBrand() + " " + getModel() + ", объём двигателя " + getEngineVolume() + " л " + getMaxVolumeFraction());
     }
 
     @Override
@@ -39,6 +50,17 @@ public class Car extends Transport implements Competing {
     @Override
     public void finishMoving() {
         System.out.println(" Водителю автомобиля закончить движение");
+    }
+
+    @Override
+    public void service() throws Exception {
+        if (getMaxVolumeFraction() > 4.5) {
+            try {
+                throw new Exception(getBrand() + " " + getModel() + " срочно нуждается в сервисном обслуживании");
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     @Override
