@@ -1,4 +1,12 @@
+import java.util.ArrayList;
+
 public class Truck extends Transport implements Competing {
+    private ArrayList<Truck> trucks;
+
+    public ArrayList<Truck> getTrucks() {
+        return trucks;
+    }
+
     public enum LoadTonnage {
         FIRST, SECOND, THIRD;
 
@@ -37,6 +45,7 @@ public class Truck extends Transport implements Competing {
 
     public Truck(String brand, String model, float engineVolume, double maxVolumeFraction) {
         super(brand, model, engineVolume, maxVolumeFraction);
+        trucks = new ArrayList<>();
     }
 
     @Override
@@ -52,7 +61,7 @@ public class Truck extends Transport implements Competing {
     }
 
     public void printTruck() {
-        System.out.println(getBrand() + " " + getModel() + ", объём двигателя " + getEngineVolume() + " л " + getMaxVolumeFraction());
+        System.out.println(getBrand() + " " + getModel() + ", объём двигателя " + getEngineVolume() + " л, выбросы CO в атмосферу " + getMaxVolumeFraction() + "%");
     }
 
     @Override

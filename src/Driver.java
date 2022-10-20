@@ -1,13 +1,21 @@
+import java.util.ArrayList;
+
 public class Driver<T extends Transport> {
     private String fullName;
     private String presenceOfDriverLicense;
     private int experience;
     private T Transport;
+    private ArrayList<Driver> drivers;
+
+    public ArrayList<Driver> getDrivers() {
+        return drivers;
+    }
 
     public Driver(String fullName, String presenceOfDriverLicense, int experience) throws Exception {
         this.fullName = fullName;
         setPresenceOfDriverLicense(presenceOfDriverLicense);
         this.experience = experience;
+        drivers = new ArrayList<>();
     }
 
     public void printDriver() {

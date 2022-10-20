@@ -1,13 +1,18 @@
+import java.util.ArrayList;
 
 public class Bus extends Transport implements Competing {
     public enum NumberOfSeats {
         VERY_FEW_SEATS, FEW_SEATS, AVERAGE_NUMBER_OF_SEATS, LOTS_OF_SEATS, A_LOT_OF_SEATS;
-
+        private ArrayList<Bus> buses;
         private String VeryFewSeats = " 10 мест";
         private String second = " 25 мест";
         private String averageNumberOfSeats = " 40-50 мест";
         private String lotsOfSeats = " 60-80 мест";
         private String aLotOfSeats = " 100-120 мест";
+
+        public ArrayList<Bus> getBuses() {
+            return buses;
+        }
 
         NumberOfSeats() {
         }
@@ -56,6 +61,7 @@ public class Bus extends Transport implements Competing {
 
     public Bus(String brand, String model, float engineVolume, double maxVolumeFraction) {
         super(brand, model, engineVolume, maxVolumeFraction);
+        ArrayList<Bus> buses = new ArrayList<>();
     }
 
     @Override
@@ -65,7 +71,7 @@ public class Bus extends Transport implements Competing {
     }
 
     public void printBus() {
-        System.out.println(getBrand() + " " + getModel() + ", объём двигателя " + getEngineVolume() + " л  " + getMaxVolumeFraction());
+        System.out.println(getBrand() + " " + getModel() + ", объём двигателя " + getEngineVolume() + " л, выбросы CO в атмосферу " + getMaxVolumeFraction() + "%");
     }
 
     @Override

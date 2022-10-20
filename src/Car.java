@@ -1,13 +1,19 @@
+import java.util.ArrayList;
+
 public class Car extends Transport implements Competing {
 
     public enum TypeOfFuel {
         SEDAN, HATH_BACK, COUPE, STATION_WAGON, SUV, CROSSOVER, PICKUP, VAN, MINIVAN;
         private static String typeOfFuel;
         private float volumeFraction;
+        private ArrayList<Car> cars;
+
+        public ArrayList<Car> getCars() {
+            return cars;
+        }
 
         TypeOfFuel() {
         }
-
         public void determineTypeOfCar() {
             if (typeOfFuel.isBlank()) {
                 System.out.println("Данных недостаточно");
@@ -27,7 +33,9 @@ public class Car extends Transport implements Competing {
 
     public Car(String brand, String model, float engineVolume, double maxVolumeFraction) {
         super(brand, model, engineVolume, maxVolumeFraction);
+        ArrayList<Car> cars = new ArrayList<>();
     }
+
     @Override
     public boolean passDiagnostics() {
         if (getMaxVolumeFraction() <= 4.5) {
@@ -38,8 +46,10 @@ public class Car extends Transport implements Competing {
         return false;
     }
 
+
+
     public void printCar() {
-        System.out.println(getBrand() + " " + getModel() + ", объём двигателя " + getEngineVolume() + " л " + getMaxVolumeFraction());
+        System.out.println(getBrand() + " " + getModel() + ", объём двигателя " + getEngineVolume() + " л, выбросы CO в атмосферу " + getMaxVolumeFraction() + "%");
     }
 
     @Override
@@ -51,7 +61,6 @@ public class Car extends Transport implements Competing {
     public void finishMoving() {
         System.out.println(" Водителю автомобиля закончить движение");
     }
-
     @Override
     public void service() throws Exception {
         if (getMaxVolumeFraction() > 4.5) {
@@ -63,11 +72,11 @@ public class Car extends Transport implements Competing {
         }
     }
 
+
     @Override
     public String toString() {
         return "Car{}";
     }
-
 
     public void pitStop() {
         System.out.println(" Здесь был пит-стоп");
