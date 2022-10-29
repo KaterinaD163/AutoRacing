@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Car extends Transport implements Competing {
 
@@ -6,14 +8,16 @@ public class Car extends Transport implements Competing {
         SEDAN, HATH_BACK, COUPE, STATION_WAGON, SUV, CROSSOVER, PICKUP, VAN, MINIVAN;
         private static String typeOfFuel;
         private float volumeFraction;
-        private ArrayList<Car> cars;
+        // private ArrayList<Car> cars;
+        private Set<Car> cars;
 
-        public ArrayList<Car> getCars() {
-            return cars;
+//        public ArrayList<Car> getCars() {
+//            return cars;
+//        }
+
+               TypeOfFuel() {
         }
 
-        TypeOfFuel() {
-        }
         public void determineTypeOfCar() {
             if (typeOfFuel.isBlank()) {
                 System.out.println("Данных недостаточно");
@@ -31,9 +35,14 @@ public class Car extends Transport implements Competing {
         }
     }
 
+//    public Car(String brand, String model, float engineVolume, double maxVolumeFraction) {
+//        super(brand, model, engineVolume, maxVolumeFraction);
+//        ArrayList<Car> cars = new ArrayList<>();
+//    }
+
+
     public Car(String brand, String model, float engineVolume, double maxVolumeFraction) {
         super(brand, model, engineVolume, maxVolumeFraction);
-        ArrayList<Car> cars = new ArrayList<>();
     }
 
     @Override
@@ -45,7 +54,6 @@ public class Car extends Transport implements Competing {
         }
         return false;
     }
-
 
 
     public void printCar() {
@@ -61,6 +69,7 @@ public class Car extends Transport implements Competing {
     public void finishMoving() {
         System.out.println(" Водителю автомобиля закончить движение");
     }
+
     @Override
     public void service() throws Exception {
         if (getMaxVolumeFraction() > 4.5) {
@@ -75,7 +84,7 @@ public class Car extends Transport implements Competing {
 
     @Override
     public String toString() {
-        return "Car{}";
+        return getModel() + " " + getBrand();
     }
 
     public void pitStop() {

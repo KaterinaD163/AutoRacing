@@ -1,21 +1,37 @@
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 public class Driver<T extends Transport> {
     private String fullName;
     private String presenceOfDriverLicense;
     private int experience;
     private T Transport;
-    private ArrayList<Driver> drivers;
+    //    private ArrayList<Driver> drivers;
+    private Set<Driver> drivers;
+//    public ArrayList<Driver> getDrivers() {
+//        return drivers;
+//    }
 
-    public ArrayList<Driver> getDrivers() {
-        return drivers;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Driver<?> driver = (Driver<?>) o;
+        return experience == driver.experience && Objects.equals(fullName, driver.fullName) && Objects.equals(presenceOfDriverLicense, driver.presenceOfDriverLicense) && Objects.equals(Transport, driver.Transport) && Objects.equals(drivers, driver.drivers);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fullName, presenceOfDriverLicense, experience, Transport, drivers);
     }
 
     public Driver(String fullName, String presenceOfDriverLicense, int experience) throws Exception {
         this.fullName = fullName;
         setPresenceOfDriverLicense(presenceOfDriverLicense);
         this.experience = experience;
-        drivers = new ArrayList<>();
+        drivers = new HashSet<>();
     }
 
     public void printDriver() {

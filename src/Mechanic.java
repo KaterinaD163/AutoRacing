@@ -1,18 +1,34 @@
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 public class Mechanic {
     private String nameSurname;
     private String company;
-    private ArrayList<Mechanic> mechanics;
+    //    private ArrayList<Mechanic> mechanics;
+     private Set<Mechanic> mechanics;
+//    public ArrayList<Mechanic> getMechanics() {
+//        return mechanics;
+//    }
 
-    public ArrayList<Mechanic> getMechanics() {
-        return mechanics;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mechanic mechanic = (Mechanic) o;
+        return nameSurname.equals(mechanic.nameSurname) && company.equals(mechanic.company) && mechanics.equals(mechanic.mechanics);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nameSurname, company, mechanics);
     }
 
     public Mechanic(String nameSurname, String company) {
         this.nameSurname = nameSurname;
         this.company = company;
-        mechanics = new ArrayList<>();
+        mechanics = new HashSet<>();
     }
 
     public String getNameSurname() {
@@ -49,6 +65,15 @@ public class Mechanic {
 
     public void doMaintenance() {
         System.out.println("Проводит техобслуживание");
+    }
+
+    @Override
+    public String toString() {
+        return "Mechanic{" +
+                "nameSurname='" + nameSurname + '\'' +
+                ", company='" + company + '\'' +
+                ", mechanics=" + mechanics +
+                '}';
     }
 }
 

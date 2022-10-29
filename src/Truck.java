@@ -1,10 +1,24 @@
-import java.util.ArrayList;
+import java.util.*;
 
 public class Truck extends Transport implements Competing {
-    private ArrayList<Truck> trucks;
+//    private ArrayList<Truck> trucks;
+    private Set<Truck> trucks;
+//    public ArrayList<Truck> getTrucks() {
+//        return trucks;
+//    }
 
-    public ArrayList<Truck> getTrucks() {
-        return trucks;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Truck truck = (Truck) o;
+        return Objects.equals(trucks, truck.trucks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(trucks);
     }
 
     public enum LoadTonnage {
@@ -43,9 +57,15 @@ public class Truck extends Transport implements Competing {
     }
 
 
+//    public Truck(String brand, String model, float engineVolume, double maxVolumeFraction) {
+//        super(brand, model, engineVolume, maxVolumeFraction);
+//        trucks = new ArrayList<>();
+//    }
+
+
     public Truck(String brand, String model, float engineVolume, double maxVolumeFraction) {
         super(brand, model, engineVolume, maxVolumeFraction);
-        trucks = new ArrayList<>();
+        this.trucks = new HashSet<>();
     }
 
     @Override
@@ -87,7 +107,7 @@ public class Truck extends Transport implements Competing {
 
     @Override
     public String toString() {
-        return "Truck{}";
+        return getModel() + " " + getBrand();
     }
 
 
@@ -105,4 +125,5 @@ public class Truck extends Transport implements Competing {
     public void maxSpeed() {
         System.out.println(" Максимальная скорость - 170 км/ч");
     }
+
 }

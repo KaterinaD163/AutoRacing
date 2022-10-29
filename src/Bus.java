@@ -1,18 +1,22 @@
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Bus extends Transport implements Competing {
     public enum NumberOfSeats {
         VERY_FEW_SEATS, FEW_SEATS, AVERAGE_NUMBER_OF_SEATS, LOTS_OF_SEATS, A_LOT_OF_SEATS;
-        private ArrayList<Bus> buses;
+//        private ArrayList<Bus> buses;
+         private Set<Bus> buses;
         private String VeryFewSeats = " 10 мест";
         private String second = " 25 мест";
         private String averageNumberOfSeats = " 40-50 мест";
         private String lotsOfSeats = " 60-80 мест";
         private String aLotOfSeats = " 100-120 мест";
 
-        public ArrayList<Bus> getBuses() {
-            return buses;
-        }
+//        public ArrayList<Bus> getBuses() {
+//            return buses;
+//        }
+
 
         NumberOfSeats() {
         }
@@ -92,7 +96,7 @@ public class Bus extends Transport implements Competing {
     @Override
     public String toString() {
 
-        return "Bus{}";
+        return getModel() + " " + getBrand();
     }
 
 
