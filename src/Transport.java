@@ -1,10 +1,14 @@
+import java.util.HashSet;
+import java.util.Set;
+
 public abstract class Transport extends Exception {
     private String brand;
     private String model;
     private float engineVolume;
     private double maxVolumeFraction;
     private String presenceOfDriverLicense;
-
+    private Set<Mechanic> mechanics;
+    private Set<Sponsor> sponsors;
 
 
 //    private int productionYear;
