@@ -1,0 +1,105 @@
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
+public class Driver<T extends Transport> {
+    private String fullName;
+    private String presenceOfDriverLicense;
+    private int experience;
+    private T Transport;
+    //    private ArrayList<Driver> drivers;
+    private Set<Driver> drivers;
+//    public ArrayList<Driver> getDrivers() {
+//        return drivers;
+//    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Driver<?> driver = (Driver<?>) o;
+        return experience == driver.experience && Objects.equals(fullName, driver.fullName) && Objects.equals(presenceOfDriverLicense, driver.presenceOfDriverLicense) && Objects.equals(Transport, driver.Transport) && Objects.equals(drivers, driver.drivers);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fullName, presenceOfDriverLicense, experience, Transport, drivers);
+    }
+
+    public Driver(String fullName, String presenceOfDriverLicense, int experience) throws Exception {
+        this.fullName = fullName;
+        setPresenceOfDriverLicense(presenceOfDriverLicense);
+        this.experience = experience;
+        drivers = new HashSet<>();
+    }
+
+    public void printDriver() {
+        System.out.println(getFullName() + ", " + getPresenceOfDriverLicense() + ", стаж " + getExperience() + " лет");
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public String getPresenceOfDriverLicense()throws NullPointerException {
+        if (presenceOfDriverLicense.isBlank() || presenceOfDriverLicense == null) {
+            try {
+                throw new NullPointerException("Необходимо указать категорию прав!");
+            } catch (NullPointerException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return presenceOfDriverLicense;
+    }
+
+    public int getExperience() {
+        return experience;
+    }
+
+    public void setPresenceOfDriverLicense(String presenceOfDriverLicense) {
+        this.presenceOfDriverLicense = presenceOfDriverLicense;
+    }
+
+    public void setExperience(int experience) {
+        this.experience = experience;
+    }
+
+    @Override
+    public String toString() {
+        return "Driver{" +
+                "fullName='" + fullName + '\'' +
+                ", presenceOfDriverLicense='" + presenceOfDriverLicense + '\'' +
+                ", experience=" + experience +
+                ", Transport=" + Transport +
+                '}';
+    }
+
+    public void startMoving(T transport) {
+        Transport.startMoving();
+        System.out.println("Начать движение");
+    }
+
+
+    public void finishMoving(T transport) {
+        Transport.finishMoving();
+        System.out.println("Закончить движение");
+    }
+
+
+    public void refill(T transport) {
+        System.out.println("Нужно срочно заправиться");
+
+    }
+
+    public void checkDriverLicense() throws NullPointerException{
+        if (presenceOfDriverLicense.isBlank() || presenceOfDriverLicense == null) {
+            try {
+                throw new NullPointerException("Необходимо указать категорию прав!");
+            } catch (NullPointerException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+}
